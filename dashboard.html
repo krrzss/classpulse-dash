@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassPulse - Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <span>ClassPulse</span>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="#" class="nav-item" data-page="dashboard">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Dashboard
+            </a>
+            <a href="#" class="nav-item active" data-page="input">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                Update Info
+            </a>
+            <a href="#" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                Analytics
+            </a>
+        </nav>
+        
+        <div class="logout">
+            <a href="#" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"></path>
+                </svg>
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <h1 class="header-title" id="welcomeTitle">Welcome to ClassPulse</h1>
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="notification-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"></path>
+                    </svg>
+                    <span class="notification-badge"></span>
+                </button>
+                <div class="user-profile" id="userProfile">
+                    <div class="user-info">
+                        <span class="user-name" id="userName">Guest</span>
+                        <span class="user-grade" id="userGrade">-</span>
+                    </div>
+                    <div class="user-avatar" id="userAvatar">G</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Input Form Page -->
+        <div class="page-content active" id="inputPage">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Student Information</h2>
+                    <p class="subtitle">Fill in your details to generate your personalized dashboard</p>
+                </div>
+
+                <form id="studentForm">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h3>Personal Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" required placeholder="Enter first name">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" required placeholder="Enter last name">
+                            </div>
+                            <div class="form-group">
+                                <label for="grade">Grade *</label>
+                                <select id="grade" required>
+                                    <option value="">Select grade</option>
+                                    <option value="9th Grade">9th Grade</option>
+                                    <option value="10th Grade">10th Grade</option>
+                                    <option value="11th Grade">11th Grade</option>
+                                    <option value="12th Grade">12th Grade</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentId">Student ID *</label>
+                                <input type="text" id="studentId" required placeholder="Enter student ID">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Attendance Information -->
+                    <div class="form-section">
+                        <h3>Attendance Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="totalClasses">Total Classes Held *</label>
+                                <input type="number" id="totalClasses" required min="1" placeholder="e.g., 100">
+                            </div>
+                            <div class="form-group">
+                                <label for="classesAttended">Classes Attended *</label>
+                                <input type="number" id="classesAttended" required min="0" placeholder="e.g., 92">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Academic Performance -->
+                    <div class="form-section">
+                        <h3>Subject Performance</h3>
+                        <p class="form-help">Enter your scores for each subject (0-100)</p>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="mathScore">Mathematics *</label>
+                                <input type="number" id="mathScore" required min="0" max="100" placeholder="0-100">
+                            </div>
+                            <div class="form-group">
+                                <label for="scienceScore">Science *</label>
+                                <input type="number" id="scienceScore" required min="0" max="100" placeholder="0-100">
+                            </div>
+                            <div class="form-group">
+                                <label for="englishScore">English *</label>
+                                <input type="number" id="englishScore" required min="0" max="100" placeholder="0-100">
+                            </div>
+                            <div class="form-group">
+                                <label for="historyScore">History *</label>
+                                <input type="number" id="historyScore" required min="0" max="100" placeholder="0-100">
+                            </div>
+                            <div class="form-group">
+                                <label for="computerScore">Computer Science *</label>
+                                <input type="number" id="computerScore" required min="0" max="100" placeholder="0-100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Participation & Behavior -->
+                    <div class="form-section">
+                        <h3>Participation & Behavior</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="participationScore">Participation Score *</label>
+                                <input type="number" id="participationScore" required min="0" max="100" placeholder="0-100">
+                            </div>
+                            <div class="form-group">
+                                <label for="behaviorScore">Behavior Score *</label>
+                                <input type="number" id="behaviorScore" required min="0" max="100" placeholder="0-100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assignments -->
+                    <div class="form-section">
+                        <h3>Current Assignments</h3>
+                        <div id="assignmentsContainer">
+                            <div class="assignment-input-group">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Assignment Title</label>
+                                        <input type="text" class="assignment-title" placeholder="e.g., Algebra Worksheet">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Subject</label>
+                                        <input type="text" class="assignment-subject" placeholder="e.g., Math">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Due Date</label>
+                                        <input type="date" class="assignment-date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select class="assignment-status">
+                                            <option value="pending">Pending</option>
+                                            <option value="progress">In Progress</option>
+                                            <option value="completed">Completed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary" id="addAssignment">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            Add Another Assignment
+                        </button>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Show Result</button>
+                        <button type="button" class="btn-secondary" id="resetForm">Reset Form</button>
+                        <button type="button" class="btn-secondary" id="loadSample">Load Sample Data</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div class="page-content" id="dashboardPage">
+            <div class="dashboard-content">
+                <div class="dashboard-header">
+                    <div>
+                        <h2>Dashboard Overview</h2>
+                        <p class="subtitle">Here's how you're performing this semester.</p>
+                    </div>
+                    <div class="risk-badge" id="riskBadge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span id="riskText">ClassPulse Risk Analysis: Low Risk</span>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Avg. Attendance</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="attendanceValue">0%</div>
+                        <div class="stat-change" id="attendanceDetail">-</div>
+                        <div class="stat-progress" id="attendanceProgress" style="width: 0%"></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Participation</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="participationValue">0/100</div>
+                        <div class="stat-change" id="participationRank">-</div>
+                        <div class="stat-progress" id="participationProgress" style="width: 0%"></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Behavior Score</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="behaviorValue">0</div>
+                        <div class="stat-change" id="behaviorStatus">-</div>
+                        <div class="stat-progress" id="behaviorProgress" style="width: 0%"></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Pending Tasks</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="pendingValue">0</div>
+                        <div class="stat-change" id="pendingDetail">-</div>
+                        <div class="stat-progress warning" id="pendingProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Bottom Section -->
+                <div class="bottom-section">
+                    <!-- Subject Performance Chart -->
+                    <div class="chart-card">
+                        <h3>Subject Performance</h3>
+                        <p class="chart-subtitle">Current academic standing across all subjects</p>
+                        <div class="chart-container">
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Recent Assignments -->
+                    <div class="assignments-card">
+                        <h3>Recent Assignments</h3>
+                        <p class="chart-subtitle">Keep track of your upcoming deadlines</p>
+                        <div class="assignments-list" id="assignmentsList">
+                            <p class="empty-state">No assignments added yet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
