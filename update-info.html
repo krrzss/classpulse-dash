@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassPulse - Update Info</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <span>ClassPulse</span>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="result-dashboard.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Dashboard
+            </a>
+            <a href="update-info.html" class="nav-item active">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                Update Info
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                Analytics
+            </a>
+        </nav>
+        
+        <div class="logout">
+            <a href="login.html" class="nav-item" id="logoutBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"></path>
+                </svg>
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <h1 class="header-title" id="welcomeTitle">Welcome back, Khushi</h1>
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="notification-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"></path>
+                    </svg>
+                    <span class="notification-badge"></span>
+                </button>
+                <div class="user-profile">
+                    <div class="user-info">
+                        <span class="user-name" id="userName">Khushi Sarkar</span>
+                        <span class="user-grade" id="userGrade">12th Grade</span>
+                    </div>
+                    <div class="user-avatar" id="userAvatar">KS</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Form Content -->
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Student Information</h2>
+                <p>Fill in your details to generate your personalized dashboard</p>
+            </div>
+
+            <form id="studentForm">
+                <!-- Personal Details -->
+                <div class="form-section">
+                    <h3>Personal Details</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Enter last name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">Grade *</label>
+                            <select id="grade" name="grade" required>
+                                <option value="">Select grade</option>
+                                <option value="9th Grade">9th Grade</option>
+                                <option value="10th Grade">10th Grade</option>
+                                <option value="11th Grade">11th Grade</option>
+                                <option value="12th Grade">12th Grade</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentId">Student ID *</label>
+                            <input type="text" id="studentId" name="studentId" placeholder="Enter student ID" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attendance Details -->
+                <div class="form-section">
+                    <h3>Attendance Details</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="totalClasses">Total Classes Held *</label>
+                            <input type="number" id="totalClasses" name="totalClasses" placeholder="e.g., 100" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="attendedClasses">Classes Attended *</label>
+                            <input type="number" id="attendedClasses" name="attendedClasses" placeholder="e.g., 92" min="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Performance -->
+                <div class="form-section">
+                    <h3>Subject Performance</h3>
+                    <p class="form-help">Enter scores for each subject (0-100)</p>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="math">Mathematics</label>
+                            <input type="number" id="math" name="math" placeholder="Score" min="0" max="100" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="science">Science</label>
+                            <input type="number" id="science" name="science" placeholder="Score" min="0" max="100" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="english">English</label>
+                            <input type="number" id="english" name="english" placeholder="Score" min="0" max="100" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="history">History</label>
+                            <input type="number" id="history" name="history" placeholder="Score" min="0" max="100" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="computer">Computer Science</label>
+                            <input type="number" id="computer" name="computer" placeholder="Score" min="0" max="100" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Behavioral Metrics -->
+                <div class="form-section">
+                    <h3>Behavioral Metrics</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="participation">Participation Score (0-100)</label>
+                            <input type="number" id="participation" name="participation" placeholder="e.g., 85" min="0" max="100" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="behavior">Behavior Score (0-100)</label>
+                            <input type="number" id="behavior" name="behavior" placeholder="e.g., 95" min="0" max="100" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assignments -->
+                <div class="form-section">
+                    <h3>Assignments</h3>
+                    <p class="form-help">Add your pending and completed assignments</p>
+                    <div id="assignmentsContainer"></div>
+                    <button type="button" class="btn-secondary" id="addAssignment">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Assignment
+                    </button>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Save & View Dashboard
+                    </button>
+                    <button type="button" class="btn-secondary" onclick="window.location.href='result-dashboard.html'">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="update-info-script.js"></script>
+</body>
+</html>

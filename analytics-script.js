@@ -341,7 +341,7 @@ if (logoutLink) {
     logoutLink.addEventListener('click', (e) => {
         e.preventDefault();
         if (confirm('Are you sure you want to logout?')) {
-            window.location.href = 'dashboard.html';
+            window.location.href = 'login.html';
         }
     });
 }
