@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassPulse - Recommendations</title>
+    <link rel="stylesheet" href="recommendations-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <span>ClassPulse</span>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="result-dashboard.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Dashboard
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                Analytics
+            </a>
+            <a href="recommendations.html" class="nav-item active">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+                Recommendations
+            </a>
+        </nav>
+        
+        <div class="logout">
+            <a href="#" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"></path>
+                </svg>
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <h1 class="header-title" id="welcomeTitle">Welcome back, Alice</h1>
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="notification-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"></path>
+                    </svg>
+                    <span class="notification-badge"></span>
+                </button>
+                <div class="user-profile">
+                    <div class="user-info">
+                        <span class="user-name" id="userName">Alice Smith</span>
+                        <span class="user-grade" id="userGrade">12th Grade</span>
+                    </div>
+                    <div class="user-avatar" id="userAvatar">AS</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Recommendations Content -->
+        <div class="recommendations-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="header-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h2>AI Insights</h2>
+                    <p class="subtitle">Personalized recommendations to help you improve.</p>
+                </div>
+            </div>
+
+            <!-- Weekly Focus Area -->
+            <div class="focus-area-card">
+                <div class="focus-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                    <span>Weekly Focus Area</span>
+                </div>
+                <p class="focus-subtitle">Based on your performance in the last 7 days</p>
+                
+                <div class="main-recommendation" id="mainRecommendation">
+                    <h3>Boost your Science scores</h3>
+                    <p>We've noticed a slight dip in your Science performance, specifically in organic chemistry topics. Dedicating 30 minutes extra this week could bring your average back up to an A.</p>
+                    
+                    <div class="tags">
+                        <span class="tag">Science</span>
+                        <span class="tag">Chemistry</span>
+                        <span class="tag priority-high">High Priority</span>
+                    </div>
+
+                    <div class="suggested-actions">
+                        <h4>SUGGESTED ACTIONS</h4>
+                        <ul id="actionsList">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                Review Chapter 4 Summary
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                Take Practice Quiz #3
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                Watch "Organic Bonds" Video
+                            </li>
+                        </ul>
+                        <button class="btn-primary">Start Learning</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Priority Cards -->
+            <div class="priority-cards-grid" id="priorityCardsGrid">
+                <!-- High Priority -->
+                <div class="priority-card high-priority">
+                    <div class="card-header">
+                        <span class="priority-badge high">High Priority</span>
+                        <span class="category">Academic</span>
+                    </div>
+                    <h3 class="card-title">Focus on Chemistry</h3>
+                    <p class="card-description">Your recent Science quiz scores show a dip in Chemistry topics. Review Chapter 4.</p>
+                    <button class="view-details-btn">
+                        View Details
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Medium Priority -->
+                <div class="priority-card medium-priority">
+                    <div class="card-header">
+                        <span class="priority-badge medium">Medium Priority</span>
+                        <span class="category">Habit</span>
+                    </div>
+                    <h3 class="card-title">Consistent Study Time</h3>
+                    <p class="card-description">You study late at night. Try shifting to early evening for better retention.</p>
+                    <button class="view-details-btn">
+                        View Details
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Low Priority -->
+                <div class="priority-card low-priority">
+                    <div class="card-header">
+                        <span class="priority-badge low">Low Priority</span>
+                        <span class="category">Participation</span>
+                    </div>
+                    <h3 class="card-title">Speak up in History</h3>
+                    <p class="card-description">You have great essay scores but low participation in History class discussions.</p>
+                    <button class="view-details-btn">
+                        View Details
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Study Habit Analysis -->
+            <div class="habit-analysis-card">
+                <div class="habit-header">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <h3>Study Habit Analysis</h3>
+                </div>
+
+                <div class="habit-columns">
+                    <div class="habit-column working">
+                        <h4>What's Working</h4>
+                        <div class="habit-items" id="workingHabits">
+                            <div class="habit-item success">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span>Completing math assignments on time</span>
+                            </div>
+                            <div class="habit-item success">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span>Consistent morning attendance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="habit-column needs-attention">
+                        <h4>Needs Attention</h4>
+                        <div class="habit-items" id="needsAttentionHabits">
+                            <div class="habit-item warning">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                <span>Late night study sessions impacting focus</span>
+                            </div>
+                            <div class="habit-item warning">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                <span>Low participation in History discussions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Tip -->
+            <div class="daily-tip-card">
+                <h3>Daily Tip</h3>
+                <blockquote id="dailyTip">
+                    "Spaced repetition is key. Review your notes 10 minutes after class, then again 24 hours later."
+                </blockquote>
+                <button class="read-more-btn">Read More</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="recommendations-script.js"></script>
+</body>
+</html>

@@ -123,10 +123,10 @@ studentForm.addEventListener('submit', (e) => {
         classesAttended: parseInt(document.getElementById('classesAttended').value),
         subjects: {
             math: parseInt(document.getElementById('mathScore').value),
-            science: parseInt(document.getElementById('scienceScore').value),
+            MySQL: parseInt(document.getElementById('MySQLScore').value),
             english: parseInt(document.getElementById('englishScore').value),
-            history: parseInt(document.getElementById('historyScore').value),
-            computer: parseInt(document.getElementById('computerScore').value)
+            machineLearning: parseInt(document.getElementById('machineLearningScore').value),
+            computerScience: parseInt(document.getElementById('computerScienceScore').value)
         },
         participationScore: parseInt(document.getElementById('participationScore').value),
         behaviorScore: parseInt(document.getElementById('behaviorScore').value),
@@ -179,10 +179,10 @@ document.getElementById('loadSample').addEventListener('click', () => {
     
     // Fill subject scores
     document.getElementById('mathScore').value = '88';
-    document.getElementById('scienceScore').value = '75';
+    document.getElementById('MySQLScore').value = '75';
     document.getElementById('englishScore').value = '92';
-    document.getElementById('historyScore').value = '84';
-    document.getElementById('computerScore').value = '96';
+    document.getElementById('machineLearningScore').value = '84';
+    document.getElementById('computerScienceScore').value = '96';
     
     // Fill participation & behavior
     document.getElementById('participationScore').value = '78';
@@ -351,10 +351,10 @@ function createPerformanceChart() {
     const subjects = ['Mat', 'Sci', 'Eng', 'His', 'Com'];
     const scores = window.studentSubjects ? [
         window.studentSubjects.math,
-        window.studentSubjects.science,
+        window.studentSubjects.MySQL,
         window.studentSubjects.english,
-        window.studentSubjects.history,
-        window.studentSubjects.computer
+        window.studentSubjects.machineLearning,
+        window.studentSubjects.computerScience
     ] : [0, 0, 0, 0, 0];
     
     // Get theme-aware colors

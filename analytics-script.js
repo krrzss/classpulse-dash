@@ -47,17 +47,17 @@ function loadStudentData() {
     if (!savedData) {
         // Default sample data
         return {
-            firstName: 'Alex',
-            lastName: 'Johnson',
-            grade: '10th Grade',
+            firstName: 'Alice',
+            lastName: 'Smith',
+            grade: '12th Grade',
             totalClasses: 100,
             classesAttended: 92,
             subjects: {
-                math: 88,
-                science: 75,
+                mathematics: 88,
+                MySQL: 75,
                 english: 92,
-                history: 84,
-                computer: 96
+                machineLearning: 84,
+                computerScience: 96
             },
             participationScore: 85,
             behaviorScore: 95,
@@ -231,10 +231,11 @@ function createDonutChart() {
     const data = loadStudentData();
     
     const subjects = [
-        { name: 'Mathematics', score: data.subjects.math, color: '#2563eb' },
-        { name: 'Science', score: data.subjects.science, color: '#10b981' },
+        { name: 'Mathematics', score: data.subjects.mathematics, color: '#2563eb' },
+        { name: 'Computer Science', score: data.subjects.computerScience, color: '#10b981' },
         { name: 'English', score: data.subjects.english, color: '#f59e0b' },
-        { name: 'History', score: data.subjects.history, color: '#8b5cf6' }
+        { name: 'MySQL', score: data.subjects.MySQL, color: '#8b5cf6' },
+        { name: 'Machine Learning', score: data.subjects.machineLearning, color: '#ec4899' }
     ];
     
     // Calculate average

@@ -46,18 +46,18 @@ function loadStudentData() {
     if (!savedData) {
         // If no data, use default sample data
         const sampleData = {
-            firstName: 'Alex',
-            lastName: 'Johnson',
-            grade: '10th Grade',
+            firstName: 'Alice',
+            lastName: 'Smith',
+            grade: '12th Grade',
             studentId: 'STU12345',
             totalClasses: 100,
             classesAttended: 92,
             subjects: {
-                math: 88,
-                science: 75,
+                mathematics: 88,
+                MySQL: 75,
                 english: 92,
-                history: 84,
-                computer: 96
+                machineLearning: 84,
+                computerScience: 96
             },
             participationScore: 85,
             behaviorScore: 95,
@@ -69,14 +69,14 @@ function loadStudentData() {
                     status: 'completed'
                 },
                 {
-                    title: 'Lab Report: Photosynthesis',
-                    subject: 'Science',
+                    title: 'DBMS Project',
+                    subject: 'MySQL',
                     date: '2024-10-20',
                     status: 'pending'
                 },
                 {
-                    title: 'Essay: Industrial Revolution',
-                    subject: 'History',
+                    title: 'Essay: AI Revolution',
+                    subject: 'machineLearning',
                     date: '2024-10-12',
                     status: 'completed'
                 },
@@ -193,10 +193,10 @@ function createPerformanceChart() {
     const subjects = ['Mat', 'Sci', 'Eng', 'His', 'Com'];
     const scores = window.studentSubjects ? [
         window.studentSubjects.math,
-        window.studentSubjects.science,
+        window.studentSubjects.MySQL,
         window.studentSubjects.english,
-        window.studentSubjects.history,
-        window.studentSubjects.computer
+        window.studentSubjects.machineLearning,
+        window.studentSubjects.computerScience
     ] : [88, 75, 92, 84, 96];
     
     // Get theme-aware colors
@@ -280,7 +280,7 @@ function createPerformanceChart() {
     });
     
     // Add canvas title showing full subject names on hover
-    canvas.title = 'Subject Performance: Mathematics, Science, English, History, Computer Science';
+    canvas.title = 'Subject Performance: Mathematics, MySQL, English, Machine Learning, Computer Science';
 }
 
 // Update Assignments List

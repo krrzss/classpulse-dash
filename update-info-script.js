@@ -58,11 +58,11 @@ function loadStudentData() {
         
         // Populate subject scores
         if (data.subjects) {
-            document.getElementById('math').value = data.subjects.math || 0;
-            document.getElementById('science').value = data.subjects.science || 0;
+            document.getElementById('mathematics').value = data.subjects.mathematics || 0;
+            document.getElementById('computerScience').value = data.subjects.computerScience || 0;
             document.getElementById('english').value = data.subjects.english || 0;
-            document.getElementById('history').value = data.subjects.history || 0;
-            document.getElementById('computer').value = data.subjects.computer || 0;
+            document.getElementById('MySQL').value = data.subjects.MySQL || 0;
+            document.getElementById('machineLearning').value = data.subjects.machineLearning || 0;
         }
         
         // Populate behavioral metrics
@@ -162,11 +162,11 @@ if (studentForm) {
             totalClasses: parseInt(document.getElementById('totalClasses').value) || 0,
             classesAttended: parseInt(document.getElementById('attendedClasses').value) || 0,
             subjects: {
-                math: parseInt(document.getElementById('math').value) || 0,
-                science: parseInt(document.getElementById('science').value) || 0,
+                mathematics: parseInt(document.getElementById('mathematics').value) || 0,
+                computerScience: parseInt(document.getElementById('computerScience').value) || 0,
                 english: parseInt(document.getElementById('english').value) || 0,
-                history: parseInt(document.getElementById('history').value) || 0,
-                computer: parseInt(document.getElementById('computer').value) || 0
+                MySQL: parseInt(document.getElementById('MySQL').value) || 0,
+                machineLearning: parseInt(document.getElementById('machineLearning').value) || 0
             },
             participationScore: parseInt(document.getElementById('participation').value) || 0,
             behaviorScore: parseInt(document.getElementById('behavior').value) || 0,
@@ -235,7 +235,7 @@ if (isFirstTime) {
     if (formHeader) {
         const welcomeMessage = document.createElement('div');
         welcomeMessage.style.cssText = 'background: #dbeafe; color: #1e40af; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 14px;';
-        welcomeMessage.innerHTML = '👋 Welcome! Please fill in your information to set up your dashboard.';
+        welcomeMessage.innerHTML = 'Welcome! Please fill in your information to set up your dashboard.';
         formHeader.appendChild(welcomeMessage);
     }
 }

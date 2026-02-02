@@ -52,7 +52,7 @@ studentForm.addEventListener('submit', (e) => {
             localStorage.setItem('studentData', existingData);
             
             // Redirect directly to dashboard
-            window.location.href = 'result-dashboard.html';
+            window.location.href = 'dashboard.html';
         } else {
             // New student - needs to fill in information
             // Create minimal data structure
@@ -64,11 +64,11 @@ studentForm.addEventListener('submit', (e) => {
                 totalClasses: 0,
                 classesAttended: 0,
                 subjects: {
-                    math: 0,
-                    science: 0,
+                    mathematics: 0,
+                    computerScience: 0,
                     english: 0,
-                    history: 0,
-                    computer: 0
+                    MySQL: 0,
+                    machineLearning: 0
                 },
                 participationScore: 0,
                 behaviorScore: 0,
@@ -103,37 +103,37 @@ window.addEventListener('load', () => {
     
     if (!existingDemoData) {
         const demoData = {
-            firstName: 'Alex',
-            lastName: 'Johnson',
-            grade: '10th Grade',
+            firstName: 'Alice',
+            lastName: 'Foster',
+            grade: '12th Grade',
             studentId: demoStudentId,
             totalClasses: 100,
             classesAttended: 92,
             subjects: {
-                math: 88,
-                science: 75,
+                mathematics: 88,
+                computerScience: 75,
                 english: 92,
-                history: 84,
-                computer: 96
+                MySQL: 84,
+                machineLearning: 96
             },
             participationScore: 85,
             behaviorScore: 95,
             assignments: [
                 {
-                    title: 'Math Assignment 5',
-                    subject: 'Mathematics',
+                    title: 'Python Assignment',
+                    subject: 'Computer Science',
                     dueDate: 'Jan 28, 2026',
                     status: 'pending'
                 },
                 {
-                    title: 'English Essay',
+                    title: 'Presentation Analysis',
                     subject: 'English',
                     dueDate: 'Jan 30, 2026',
                     status: 'progress'
                 },
                 {
-                    title: 'Science Project',
-                    subject: 'Science',
+                    title: 'Making AI Tools',
+                    subject: 'Machine Learning',
                     dueDate: 'Feb 5, 2026',
                     status: 'completed'
                 }
