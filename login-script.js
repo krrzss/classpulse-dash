@@ -1,156 +1,251 @@
-// Tab Switching
-const tabBtns = document.querySelectorAll('.tab-btn');
-const studentForm = document.getElementById('studentForm');
-const teacherForm = document.getElementById('teacherForm');
+// ============================================================================
+// LOGIN PAGE JAVASCRIPT - MODIFIED FOR NEW DASHBOARD SYSTEM
+// Handles tab switching, theme toggle, and authentication
+// ============================================================================
 
-tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all tabs
-        tabBtns.forEach(b => b.classList.remove('active'));
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ========================================================================
+    // THEME TOGGLE FUNCTIONALITY
+    // ========================================================================
+    
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.querySelector('.theme-icon');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved theme preference or default to 'light'
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Set initial theme
+    setTheme(currentTheme);
+    
+    // Theme toggle event listener
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
-        // Add active class to clicked tab
-        btn.classList.add('active');
+        setTheme(newTheme);
         
-        // Show appropriate form
-        const tab = btn.getAttribute('data-tab');
-        if (tab === 'student') {
-            studentForm.classList.add('active');
-            teacherForm.classList.remove('active');
-        } else {
-            teacherForm.classList.add('active');
-            studentForm.classList.remove('active');
-        }
+        // Save theme preference to localStorage
+        localStorage.setItem('theme', newTheme);
+        
+        // Add a subtle animation
+        themeToggle.style.transform = 'rotate(360deg) scale(1.2)';
+        setTimeout(() => {
+            themeToggle.style.transform = '';
+        }, 300);
     });
-});
-
-// Student Form Submission
-studentForm.addEventListener('submit', (e) => {
-    e.preventDefault();
     
-    const studentId = document.getElementById('studentId').value;
-    const password = document.getElementById('studentPassword').value;
-    
-    // Get submit button
-    const submitBtn = studentForm.querySelector('.btn-submit');
-    
-    // Add loading state
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-    
-    // Simple validation (accept any credentials for demo)
-    setTimeout(() => {
-        // Check if student data already exists for this ID
-        const existingData = localStorage.getItem(`studentData_${studentId}`);
-        
-        // Store the current student ID in session
-        localStorage.setItem('currentStudentId', studentId);
-        localStorage.setItem('isLoggedIn', 'true');
-        
-        if (existingData) {
-            // Returning student - has existing data
-            const studentData = JSON.parse(existingData);
-            localStorage.setItem('studentData', existingData);
-            
-            // Redirect directly to dashboard
-            window.location.href = 'dashboard.html';
+    // Function to set theme
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            htmlElement.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️';
         } else {
-            // New student - needs to fill in information
-            // Create minimal data structure
-            const newStudentData = {
-                firstName: '',
-                lastName: '',
-                grade: '',
-                studentId: studentId,
-                totalClasses: 0,
-                classesAttended: 0,
-                subjects: {
-                    mathematics: 0,
-                    computerScience: 0,
-                    english: 0,
-                    MySQL: 0,
-                    machineLearning: 0
-                },
-                participationScore: 0,
-                behaviorScore: 0,
-                assignments: []
-            };
-            
-            localStorage.setItem('studentData', JSON.stringify(newStudentData));
-            
-            // Redirect to update-info page to fill in details
-            window.location.href = 'update-info.html?firstTime=true';
+            htmlElement.setAttribute('data-theme', 'light');
+            themeIcon.textContent = '🌙';
         }
-    }, 1000);
+    }
+    
+    // ========================================================================
+    // TAB SWITCHING FUNCTIONALITY
+    // ========================================================================
+    
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const formContainers = document.querySelectorAll('.login-form-container');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const role = this.getAttribute('data-role');
+            
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            formContainers.forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            const targetForm = document.getElementById(`${role}-form`);
+            if (targetForm) {
+                targetForm.classList.add('active');
+            }
+        });
+    });
+    
+    // ========================================================================
+    // CHECK URL PARAMETERS FOR ROLE
+    // ========================================================================
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const roleParam = urlParams.get('role');
+    
+    if (roleParam) {
+        const targetTab = document.querySelector(`[data-role="${roleParam}"]`);
+        if (targetTab) {
+            targetTab.click();
+        }
+    }
+    
+    // ========================================================================
+    // INPUT VALIDATION AND VISUAL FEEDBACK
+    // ========================================================================
+    
+    const inputs = document.querySelectorAll('input[type="text"], input[type="password"]');
+    
+    inputs.forEach(input => {
+        input.addEventListener('input', function() {
+            if (this.value.length > 0) {
+                this.style.borderColor = 'var(--primary)';
+            } else {
+                this.style.borderColor = 'var(--border)';
+            }
+        });
+        
+        input.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'translateY(-2px)';
+            this.parentElement.style.transition = 'transform 0.3s ease';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'translateY(0)';
+        });
+    });
+    
 });
 
-// Teacher Form (disabled)
-teacherForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-});
+// ============================================================================
+// STUDENT LOGIN HANDLER - REDIRECTS TO DASHBOARD.HTML
+// ============================================================================
 
-// Auto-fill demo credentials on page load (optional)
-window.addEventListener('load', () => {
-    const studentIdInput = document.getElementById('studentId');
-    const studentPasswordInput = document.getElementById('studentPassword');
+function handleStudentLogin(event) {
+    event.preventDefault();
     
-    // Pre-fill with demo credentials
-    studentIdInput.value = 'ST-2024-001';
-    studentPasswordInput.value = 'demo123';
+    const studentId = document.getElementById('student-id').value;
+    const password = document.getElementById('student-password').value;
     
-    // Create demo data for ST-2024-001 if it doesn't exist
-    const demoStudentId = 'ST-2024-001';
-    const existingDemoData = localStorage.getItem(`studentData_${demoStudentId}`);
+    const validCredentials = {
+        'STU001': 'student123',
+        'STU002': 'student123',
+        'STU023': 'student123'
+    };
     
-    if (!existingDemoData) {
-        const demoData = {
-            firstName: 'Alice',
-            lastName: 'Foster',
-            grade: '12th Grade',
-            studentId: demoStudentId,
-            totalClasses: 100,
-            classesAttended: 92,
-            subjects: {
-                mathematics: 88,
-                computerScience: 75,
-                english: 92,
-                MySQL: 84,
-                machineLearning: 96
-            },
-            participationScore: 85,
-            behaviorScore: 95,
-            assignments: [
-                {
-                    title: 'Python Assignment',
-                    subject: 'Computer Science',
-                    dueDate: 'Jan 28, 2026',
-                    status: 'pending'
-                },
-                {
-                    title: 'Presentation Analysis',
-                    subject: 'English',
-                    dueDate: 'Jan 30, 2026',
-                    status: 'progress'
-                },
-                {
-                    title: 'Making AI Tools',
-                    subject: 'Machine Learning',
-                    dueDate: 'Feb 5, 2026',
-                    status: 'completed'
-                }
-            ]
-        };
-        localStorage.setItem(`studentData_${demoStudentId}`, JSON.stringify(demoData));
+    if (validCredentials[studentId] && validCredentials[studentId] === password) {
+        sessionStorage.setItem('userRole', 'student');
+        sessionStorage.setItem('userId', studentId);
+        sessionStorage.setItem('isLoggedIn', 'true');
+        
+        showNotification('✅ Login successful! Redirecting to dashboard...', 'success');
+        
+        setTimeout(() => {
+            window.location.href = 'dashboard.html';
+        }, 1500);
+    } else {
+        showNotification('❌ Invalid credentials. Please try again.\n\nDemo credentials:\nStudent ID: STU001\nPassword: student123', 'error');
+    }
+    
+    return false;
+}
+
+// ============================================================================
+// TEACHER LOGIN HANDLER - REDIRECTS TO DASHBOARD.HTML
+// ============================================================================
+
+function handleTeacherLogin(event) {
+    event.preventDefault();
+    
+    const teacherId = document.getElementById('teacher-id').value;
+    const password = document.getElementById('teacher-password').value;
+    
+    const validCredentials = {
+        'TEACH001': 'teacher123',
+        'TEACH002': 'teacher123'
+    };
+    
+    if (validCredentials[teacherId] && validCredentials[teacherId] === password) {
+        sessionStorage.setItem('userRole', 'teacher');
+        sessionStorage.setItem('userId', teacherId);
+        sessionStorage.setItem('isLoggedIn', 'true');
+        
+        showNotification('✅ Login successful! Redirecting to dashboard...', 'success');
+        
+        setTimeout(() => {
+            window.location.href = 'dashboard.html';
+        }, 1500);
+    } else {
+        showNotification('❌ Invalid credentials. Please try again.\n\nDemo credentials:\nTeacher ID: TEACH001\nPassword: teacher123', 'error');
+    }
+    
+    return false;
+}
+
+// ============================================================================
+// NOTIFICATION SYSTEM
+// ============================================================================
+
+function showNotification(message, type = 'info') {
+    let notification = document.getElementById('login-notification');
+    
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.id = 'login-notification';
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            z-index: 10000;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            max-width: 400px;
+            white-space: pre-line;
+            font-size: 14px;
+            line-height: 1.6;
+        `;
+        document.body.appendChild(notification);
+    }
+    
+    if (type === 'success') {
+        notification.style.background = '#10b981';
+        notification.style.color = 'white';
+    } else if (type === 'error') {
+        notification.style.background = '#ef4444';
+        notification.style.color = 'white';
+    } else {
+        notification.style.background = '#3b82f6';
+        notification.style.color = 'white';
+    }
+    
+    notification.textContent = message;
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 10);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(400px)';
+    }, 3000);
+}
+
+function clearForms() {
+    document.querySelectorAll('input[type="text"], input[type="password"]').forEach(input => {
+        input.value = '';
+    });
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 't' || e.key === 'T') {
+        if (document.activeElement.tagName !== 'INPUT') {
+            document.getElementById('themeToggle').click();
+        }
+    }
+    
+    if (e.key === 'Escape') {
+        clearForms();
     }
 });
 
-// Add input focus effects
-const inputs = document.querySelectorAll('input');
-inputs.forEach(input => {
-    input.addEventListener('focus', () => {
-        input.parentElement.style.transform = 'scale(1.02)';
-    });
-    
-    input.addEventListener('blur', () => {
-        input.parentElement.style.transform = 'scale(1)';
-    });
-});
+console.log('ClassPulse Login System Initialized - New Dashboard Integration');

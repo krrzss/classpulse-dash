@@ -1,303 +1,438 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClassPulse - AI-Powered Student Performance Analytics</title>
-    <link rel="stylesheet" href="homepage-styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClassPulse - AI-Powered Student Performance Platform</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="main-style.css" />
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                </svg>
-                <span>ClassPulse</span>
-            </div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How it Works</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="login.html" class="btn-login">Student Login</a>
-            </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </button>
-        </div>
+  <!-- NAVIGATION BAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <span class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        ClassPulse
+      </span>
+    </div>
+    <nav class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#platform">Platform</a>
+      <a href="#benefits">Required By</a>
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon">🌙</span>
+      </button>
+      <a href="login.html">
+        <button class="btn-primary">Sign In</button>
+      </a>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <circle cx="12" cy="12" r="3"></circle>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+          <line x1="9" y1="9" x2="9.01" y2="9"></line>
+          <line x1="15" y1="9" x2="15.01" y2="9"></line>
+        </svg>
+        v2.0 is now live
+      </span>
+      
+      <h1>
+        Unlock Every Student's <span class="text-gradient">Hidden Potential.</span>
+      </h1>
+
+      <p>
+        AI-driven analytics that transform raw data into actionable insights. Empowering educators to make data-backed decisions in real-time.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="login.html">
+          <button class="btn-primary-large">Get Started Free</button>
+        </a>
+        <button class="btn-outline">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+          </svg>
+          Watch Demo
+        </button>
+      </div>
+    </div>
+
+    <!-- Hero Image/Chart (Right Side) -->
+    <div class="hero-visual">
+      <div class="analytics-preview">
+        <svg width="100%" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect width="400" height="300" rx="16" fill="var(--card-bg)"/>
+          
+          <!-- Chart Title -->
+          <text x="20" y="30" fill="var(--text-dark)" font-size="14" font-weight="600">Analytics Engine</text>
+          <text x="20" y="50" fill="var(--text-gray)" font-size="12">Real-time performance tracking</text>
+          
+          <!-- Bar Chart -->
+          <rect x="50" y="200" width="50" height="60" rx="4" fill="#667eea"/>
+          <rect x="120" y="150" width="50" height="110" rx="4" fill="#764ba2"/>
+          <rect x="190" y="180" width="50" height="80" rx="4" fill="#667eea"/>
+          <rect x="260" y="140" width="50" height="120" rx="4" fill="#764ba2"/>
+          <rect x="330" y="170" width="50" height="90" rx="4" fill="#667eea"/>
+          
+          <!-- Grid Lines -->
+          <line x1="30" y1="260" x2="390" y2="260" stroke="var(--border-color)" stroke-width="1"/>
+          <line x1="30" y1="80" x2="390" y2="80" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="30" y1="140" x2="390" y2="140" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="30" y1="200" x2="390" y2="200" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="4"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM SECTION -->
+  <section id="problem" class="problem-section">
+    <div class="section-header-center">
+      <h2>The Challenge in Modern Education</h2>
+      <p>Why Data-Driven Insights Matter Now More Than Ever</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </div>
+        <h3>The Attendance Problem</h3>
+        <p>Traditional attendance tracking is manual, error-prone, and disconnected from performance data. Teachers spend time managing spreadsheets instead of identifying at-risk students.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <h3>Delayed Insights, Delayed Action</h3>
+        <p>Educational institutions lack real-time visibility. By the time teachers identify struggling students, weeks of critical learning have been lost.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+          </svg>
+        </div>
+        <h3>Reactive, Not Proactive</h3>
+        <p>Without actionable data, schools operate reactively. Teachers cannot see emerging patterns like engagement drops until it becomes a crisis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION SECTION -->
+  <section id="solution" class="solution-section">
+    <div class="section-header-center">
+      <h2>How ClassPulse Solves This</h2>
+      <p>Real-Time Intelligence for Modern Educators</p>
+    </div>
+
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="solution-icon">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <h3>Centralized Data Hub</h3>
+        <p>All student data—attendance, grades, participation, behavior—flows into a single platform. No more juggling multiple spreadsheets or disconnected systems.</p>
+        <div class="solution-metrics">
+          <div class="metric">
+            <span class="metric-value">95%</span>
+            <span class="metric-label">Time Saved</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">100%</span>
+            <span class="metric-label">Accuracy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-card">
+        <div class="solution-icon">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M2 12h20"></path>
+            <path d="M17 2l2 2-2 2M7 22l-2-2 2-2M22 7l-2 2 2 2M2 17l2-2-2-2"></path>
+          </svg>
+        </div>
+        <h3>AI-Powered Risk Detection</h3>
+        <p>Our ML models analyze patterns across attendance, grades, and behavior to identify students at risk before they fall behind. Early intervention saves academic careers.</p>
+        <div class="solution-metrics">
+          <div class="metric">
+            <span class="metric-value">3x</span>
+            <span class="metric-label">Faster Detection</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">87%</span>
+            <span class="metric-label">Accuracy Rate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="solution-card">
+        <div class="solution-icon">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <h3>Real-Time Dashboards</h3>
+        <p>Beautiful, intuitive dashboards give teachers instant visibility into class performance. Filter by student, subject, or time period with one click.</p>
+        <div class="solution-metrics">
+          <div class="metric">
+            <span class="metric-value">Live</span>
+            <span class="metric-label">Updates</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">5 sec</span>
+            <span class="metric-label">Load Time</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM FEATURES SECTION -->
+  <section id="platform" class="platform-section">
+    <div class="section-header-center">
+      <h2>Designed for Scale & Evolution</h2>
+      <p>Architecture Built for Tomorrow</p>
+    </div>
+
+    <div class="platform-grid">
+      <div class="platform-card">
+        <div class="platform-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"></path>
+          </svg>
+        </div>
+        <h3>Database Integration</h3>
+        <p>Designed to integrate seamlessly with PostgreSQL and MySQL for institutional-grade infrastructure.</p>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+          </svg>
+        </div>
+        <h3>Advanced ML Models</h3>
+        <p>Ready to integrate sophisticated predictive analytics and personalized intervention recommendations.</p>
+      </div>
+
+      <div class="platform-card highlighted">
+        <div class="platform-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <h3>Real-Time Systems</h3>
+        <p>Future support for streaming analytics and immediate alerts, evolving to true real-time operations.</p>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path>
+          </svg>
+        </div>
+        <h3>Multi-Institution Deployment</h3>
+        <p>Built for multi-tenancy. Supports independent school deployments or district-wide systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION SECTION -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to Transform Your Institution?</h2>
+      <p>Join schools already using ClassPulse.</p>
+      
+      <p class="cta-description">
+        ClassPulse gives educators the clarity, tools, and insights they need to support every student. The system grows with your needs.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="login.html">
+          <button class="btn-primary-large">Get Started Free</button>
+        </a>
+        <button class="btn-outline-white">Schedule a Demo</button>
+      </div>
+
+      <p class="cta-note">No credit card required. Full access.</p>
+    </div>
+  </section>
+
+  <!-- BENEFITS / WHO BENEFITS SECTION -->
+  <section id="benefits" class="benefits-section">
+    <div class="section-header-center">
+      <h2>Who Benefits from ClassPulse</h2>
+      <p>Built for Every Stakeholder in Education</p>
+    </div>
+
+    <div class="benefits-grid">
+      <!-- For Teachers -->
+      <div class="benefit-card">
+        <div class="benefit-header">
+          <div class="benefit-icon-large">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"></path>
+              <line x1="12" y1="9" x2="12" y2="15"></line>
+              <line x1="9" y1="12" x2="15" y2="12"></line>
             </svg>
-            New: AI-Powered Insights
+          </div>
+          <h3>For Teachers</h3>
         </div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">
-                ClassPulse: <span class="gradient-text">Unlock Every Student's Potential</span>
-            </h1>
-            <p class="hero-subtitle">
-                Go beyond attendance. Track performance, behavior, and engagement with ClassPulse's AI-driven analytics platform designed for modern education.
-            </p>
-            <div class="hero-actions">
-                <a href="login.html" class="btn btn-primary">Get Started</a>
-                <button class="btn btn-secondary" id="viewDemoBtn">View Demo</button>
-            </div>
+        <h4 class="benefit-tagline">Reduce Manual Work, Gain Clarity</h4>
+        <ul class="benefit-list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Attendance tracking takes seconds
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Identify struggling students early
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Data-backed insights for conferences
+          </li>
+        </ul>
+      </div>
+
+      <!-- For Students -->
+      <div class="benefit-card">
+        <div class="benefit-header">
+          <div class="benefit-icon-large">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h3>For Students</h3>
         </div>
+        <h4 class="benefit-tagline">Self-Awareness and Improvement</h4>
+        <ul class="benefit-list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Real-time performance tracking
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Understand areas for improvement
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Take ownership of academic journey
+          </li>
+        </ul>
+      </div>
 
-        <div class="hero-visual">
-            <div class="dashboard-preview">
-                <div class="preview-header">
-                    <div class="preview-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="preview-title">Student Dashboard</div>
-                </div>
-                <div class="preview-content">
-                    <div class="preview-card">
-                        <div class="preview-icon">📊</div>
-                        <div class="preview-text">Real-time Analytics</div>
-                    </div>
-                    <div class="preview-card">
-                        <div class="preview-icon">🎯</div>
-                        <div class="preview-text">AI Recommendations</div>
-                    </div>
-                    <div class="preview-card highlight">
-                        <div class="insight-badge">AI Insight</div>
-                        <div class="risk-level">Risk Level: Low</div>
-                    </div>
-                    <div class="preview-card">
-                        <div class="preview-icon">📈</div>
-                        <div class="performance-stat">
-                            <span>Performance</span>
-                            <span class="stat-value">+12.5%</span>
-                            <span class="stat-label">vs last month</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- For Institutions -->
+      <div class="benefit-card">
+        <div class="benefit-header">
+          <div class="benefit-icon-large">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <h3>For Institutions</h3>
         </div>
-    </section>
+        <h4 class="benefit-tagline">Compliance, Consistency, and Insights</h4>
+        <ul class="benefit-list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Ensure uniform attendance policies
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Monitor school-wide trends
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Data-backed resource allocation
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <!-- CTA Banner -->
-    <section class="cta-banner">
-        <div class="cta-container">
-            <h2>Ready to transform your educational journey?</h2>
-            <p>Join thousands of students and teachers using ClassPulse to achieve better results.</p>
-            <a href="login.html" class="btn btn-light">Start Learning Now</a>
-        </div>
-    </section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <span class="footer-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          ClassPulse
+        </span>
+        <p>© 2024 ClassPulse Inc. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Service</a>
+        <a href="#support">Support</a>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Everything you need to succeed</h2>
-                <p>Our platform provides comprehensive tools for students, teachers, and administrators to monitor and improve academic performance.</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Real-time Analytics</h3>
-                    <p>Track attendance, grades, and participation trends instantly with beautiful interactive charts.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3>AI Recommendations</h3>
-                    <p>Get personalized study tips and improvement strategies based on machine learning analysis.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3>Risk Detection</h3>
-                    <p>Early warning system that identifies students at risk of falling behind before it's too late.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                        </svg>
-                    </div>
-                    <h3>Assignment Tracking</h3>
-                    <p>Never miss a deadline. Keep track of all assignments, projects, and exams in one place.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
-                        </svg>
-                    </div>
-                    <h3>Behavioral Insights</h3>
-                    <p>Monitor participation and behavioral trends to ensure holistic student development.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="7" height="7"></rect>
-                            <rect x="14" y="3" width="7" height="7"></rect>
-                            <rect x="14" y="14" width="7" height="7"></rect>
-                            <rect x="3" y="14" width="7" height="7"></rect>
-                        </svg>
-                    </div>
-                    <h3>Unified Dashboard</h3>
-                    <p>All your data in one clean, organized view. Access everything you need with just one click.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How it Works Section -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2>How ClassPulse Works</h2>
-                <p>Get started in three simple steps</p>
-            </div>
-            
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>Sign Up</h3>
-                    <p>Create your account using your student or teacher credentials provided by your institution.</p>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>Connect Your Data</h3>
-                    <p>Your academic information is automatically synced from your school's system for real-time tracking.</p>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Track & Improve</h3>
-                    <p>Monitor your progress, receive AI-powered insights, and watch your performance improve.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>What Our Users Say</h2>
-                <p>Trusted by thousands of students and educators worldwide</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"ClassPulse helped me identify my weak areas early and improve my grades by 15%. The AI recommendations are spot-on!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SK</div>
-                        <div>
-                            <div class="author-name">Sarah Kumar</div>
-                            <div class="author-title">10th Grade Student</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"As a teacher, this platform has transformed how I monitor student progress. The risk detection feature is a game-changer."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MP</div>
-                        <div>
-                            <div class="author-name">Michael Peterson</div>
-                            <div class="author-title">Mathematics Teacher</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"The unified dashboard makes it so easy to stay on top of my assignments and track my performance across all subjects."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">RP</div>
-                        <div>
-                            <div class="author-name">Rajesh Patel</div>
-                            <div class="author-title">12th Grade Student</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                    </svg>
-                    <span>ClassPulse</span>
-                </div>
-                <p>Empowering students and teachers with data-driven insights for better learning outcomes.</p>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Product</h4>
-                <a href="#features">Features</a>
-                <a href="#">Pricing</a>
-                <a href="#">Case Studies</a>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Company</h4>
-                <a href="#">About Us</a>
-                <a href="#">Careers</a>
-                <a href="#">Contact</a>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 ClassPulse. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="homepage-script.js"></script>
+  <!-- JavaScript -->
+  <script src="main-script.js"></script>
 </body>
 </html>
