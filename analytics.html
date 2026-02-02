@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassPulse - Analytics</title>
+    <link rel="stylesheet" href="analytics-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <span>ClassPulse</span>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="result-dashboard.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Dashboard
+            </a>
+            <a href="analytics.html" class="nav-item active">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                Analytics
+            </a>
+            <a href="recommendations.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+                Recommendations
+            </a>
+        </nav>
+        
+        <div class="logout">
+            <a href="#" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"></path>
+                </svg>
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <h1 class="header-title" id="welcomeTitle">Welcome back, Alex</h1>
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="notification-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"></path>
+                    </svg>
+                    <span class="notification-badge"></span>
+                </button>
+                <div class="user-profile">
+                    <div class="user-info">
+                        <span class="user-name" id="userName">Alex Johnson</span>
+                        <span class="user-grade" id="userGrade">10th Grade</span>
+                    </div>
+                    <div class="user-avatar" id="userAvatar">AJ</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Analytics Content -->
+        <div class="analytics-content">
+            <div class="analytics-header">
+                <h2>Performance Analytics</h2>
+                <p class="subtitle">Deep dive into your academic trends and statistics.</p>
+            </div>
+
+            <!-- Weekly Improvement Trend -->
+            <div class="chart-card trend-card">
+                <h3>Weekly Improvement Trend</h3>
+                <p class="chart-subtitle">Your overall performance score over the last 6 weeks</p>
+                <div class="trend-chart-container">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Bottom Analytics Section -->
+            <div class="analytics-grid">
+                <!-- Subject Distribution -->
+                <div class="chart-card">
+                    <h3>Subject Distribution</h3>
+                    <p class="chart-subtitle">Score breakdown by subject area</p>
+                    <div class="donut-chart-container">
+                        <canvas id="donutChart"></canvas>
+                        <div class="donut-center">
+                            <div class="avg-score" id="avgScore">87.2</div>
+                            <div class="avg-label">Avg Score</div>
+                        </div>
+                    </div>
+                    <div class="legend" id="subjectLegend"></div>
+                </div>
+
+                <!-- Key Metrics Analysis -->
+                <div class="chart-card metrics-card">
+                    <h3>Key Metrics Analysis</h3>
+                    <p class="chart-subtitle">Detailed breakdown of your academic standing</p>
+                    <div class="metrics-list">
+                        <div class="metric-item">
+                            <div class="metric-info">
+                                <span class="metric-label">Assignment Completion Rate</span>
+                                <span class="metric-value" id="completionRate">92%</span>
+                            </div>
+                            <div class="metric-bar-container">
+                                <div class="metric-bar completion-bar" id="completionBar" style="width: 92%"></div>
+                            </div>
+                        </div>
+
+                        <div class="metric-item">
+                            <div class="metric-info">
+                                <span class="metric-label">Class Participation</span>
+                                <span class="metric-value" id="participationRate">85%</span>
+                            </div>
+                            <div class="metric-bar-container">
+                                <div class="metric-bar participation-bar" id="participationBar" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="metric-item">
+                            <div class="metric-info">
+                                <span class="metric-label">Quiz Accuracy</span>
+                                <span class="metric-value" id="quizAccuracy">78%</span>
+                            </div>
+                            <div class="metric-bar-container">
+                                <div class="metric-bar quiz-bar" id="quizBar" style="width: 78%"></div>
+                            </div>
+                        </div>
+
+                        <div class="metric-item">
+                            <div class="metric-info">
+                                <span class="metric-label">Attendance Reliability</span>
+                                <span class="metric-value" id="attendanceReliability">96%</span>
+                            </div>
+                            <div class="metric-bar-container">
+                                <div class="metric-bar attendance-bar" id="attendanceBar" style="width: 96%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="analytics-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClassPulse - Login</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="login-style.css" />
+</head>
+
+<body>
+  <!-- LOGIN CONTAINER -->
+  <div class="login-wrapper">
+    
+    <!-- LOGO -->
+    <div class="login-logo">
+      <div class="logo-circle">
+        <i data-lucide="graduation-cap" class="logo-icon"></i>
+      </div>
+    </div>
+
+    <!-- WELCOME TEXT -->
+    <div class="welcome-text">
+      <h1>Welcome Back</h1>
+      <p>Sign in to your ClassPulse account</p>
+    </div>
+
+    <!-- LOGIN CARD -->
+    <div class="login-card">
+      
+      <!-- CARD HEADER -->
+      <div class="card-header">
+        <h2>Login</h2>
+        <p>Enter your credentials to access your dashboard.</p>
+      </div>
+
+      <!-- ROLE SELECTOR TABS -->
+      <div class="role-tabs">
+        <button class="tab-btn active" data-role="student">
+          Student
+        </button>
+        <button class="tab-btn" data-role="teacher">
+          Teacher
+        </button>
+      </div>
+
+      <!-- STUDENT LOGIN FORM -->
+      <div class="login-form-container active" id="student-form">
+        <form class="login-form" onsubmit="return handleStudentLogin(event)">
+          <div class="form-group">
+            <label for="student-id">Student ID</label>
+            <div class="input-wrapper">
+              <i data-lucide="user" class="input-icon"></i>
+              <input 
+                type="text" 
+                id="student-id" 
+                name="studentId" 
+                placeholder="ST-2024-001"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="student-password">Password</label>
+            <div class="input-wrapper">
+              <i data-lucide="lock" class="input-icon"></i>
+              <input 
+                type="password" 
+                id="student-password" 
+                name="password" 
+                placeholder="••••••••"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn-login">
+            Sign In
+          </button>
+        </form>
+      </div>
+
+      <!-- TEACHER LOGIN FORM -->
+      <div class="login-form-container" id="teacher-form">
+        <div class="maintenance-notice">
+          <i data-lucide="alert-circle" class="maintenance-icon"></i>
+          <p>Teacher portal is currently under maintenance.</p>
+        </div>
+
+        <form class="login-form" onsubmit="return handleTeacherLogin(event)">
+          <button type="button" class="btn-login btn-disabled" disabled>
+            Teacher Login
+          </button>
+        </form>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="card-footer">
+        <p>Forgot your credentials? Contact your school administrator.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="login-script.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
