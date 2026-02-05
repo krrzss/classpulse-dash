@@ -41,17 +41,17 @@ function loadStudentData() {
     if (!savedData) {
         // Default sample data
         return {
-            firstName: 'Alice',
-            lastName: 'Smith',
-            grade: '12th Grade',
+            firstName: 'Alex',
+            lastName: 'Johnson',
+            grade: '10th Grade',
             totalClasses: 100,
             classesAttended: 92,
             subjects: {
-                mathematics: 88,
-                MySQL: 75,
+                math: 88,
+                science: 75,
                 english: 92,
-                machineLearning: 84,
-                computerScience: 96
+                history: 84,
+                computer: 96
             },
             participationScore: 85,
             behaviorScore: 95,
@@ -77,11 +77,11 @@ function updateUserInfo(data) {
 function analyzePerformance(data) {
     const subjects = data.subjects;
     const subjectNames = {
-        mathematics: 'Mathematics',
-        MySQL: 'MySQL',
+        math: 'Mathematics',
+        science: 'Science',
         english: 'English',
-        machineLearning: 'Machine Learning',
-        computerScience: 'Computer Science'
+        history: 'History',
+        computer: 'Computer Science'
     };
     
     // Find lowest scoring subject
@@ -428,7 +428,7 @@ if (logoutLink) {
     logoutLink.addEventListener('click', (e) => {
         e.preventDefault();
         if (confirm('Are you sure you want to logout?')) {
-            window.location.href = 'dashboard.html';
+            window.location.href = 'index.html';
         }
     });
 }

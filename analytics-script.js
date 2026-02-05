@@ -47,17 +47,17 @@ function loadStudentData() {
     if (!savedData) {
         // Default sample data
         return {
-            firstName: 'Alice',
-            lastName: 'Smith',
-            grade: '12th Grade',
+            firstName: 'Alex',
+            lastName: 'Johnson',
+            grade: '10th Grade',
             totalClasses: 100,
             classesAttended: 92,
             subjects: {
-                mathematics: 88,
-                MySQL: 75,
+                math: 88,
+                science: 75,
                 english: 92,
-                machineLearning: 84,
-                computerScience: 96
+                history: 84,
+                computer: 96
             },
             participationScore: 85,
             behaviorScore: 95,
@@ -226,48 +226,64 @@ function createTrendChart() {
 function createDonutChart() {
     const canvas = document.getElementById('donutChart');
     if (!canvas) return;
-
+    
     const ctx = canvas.getContext('2d');
-
-    // FORCE SAFE DATA (ignore localStorage for now)
+    const data = loadStudentData();
+    
     const subjects = [
-        { name: 'Math', score: 88, color: '#2563eb' },
-        { name: 'Science', score: 75, color: '#10b981' },
-        { name: 'English', score: 92, color: '#f59e0b' },
-        { name: 'History', score: 84, color: '#8b5cf6' },
-        { name: 'Computer', score: 96, color: '#ec4899' }
+        { name: 'Mathematics', score: data.subjects.math, color: '#2563eb' },
+        { name: 'Science', score: data.subjects.science, color: '#10b981' },
+        { name: 'English', score: data.subjects.english, color: '#f59e0b' },
+        { name: 'History', score: data.subjects.history, color: '#8b5cf6' }
     ];
-
+    
+    // Calculate average
+    const avgScore = (subjects.reduce((sum, s) => sum + s.score, 0) / subjects.length).toFixed(1);
+    document.getElementById('avgScore').textContent = avgScore;
+    
     canvas.width = 280;
     canvas.height = 280;
-
-    const cx = 140;
-    const cy = 140;
+    
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
     const radius = 100;
-    const innerRadius = 65;
-
+    const innerRadius = 70;
+    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    const total = subjects.reduce((s, x) => s + x.score, 0);
-
-    let angle = -Math.PI / 2;
-
-    subjects.forEach(s => {
-        const slice = (s.score / total) * Math.PI * 2;
-
+    
+    // Calculate total
+    const total = subjects.reduce((sum, s) => sum + s.score, 0);
+    
+    // Draw segments
+    let currentAngle = -Math.PI / 2;
+    
+    subjects.forEach(subject => {
+        const sliceAngle = (subject.score / total) * Math.PI * 2;
+        
+        // Draw outer arc
         ctx.beginPath();
-        ctx.arc(cx, cy, radius, angle, angle + slice);
-        ctx.arc(cx, cy, innerRadius, angle + slice, angle, true);
+        ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+        ctx.arc(centerX, centerY, innerRadius, currentAngle + sliceAngle, currentAngle, true);
         ctx.closePath();
-        ctx.fillStyle = s.color;
+        ctx.fillStyle = subject.color;
         ctx.fill();
-
-        angle += slice;
+        
+        currentAngle += sliceAngle;
     });
-
-    // Avg score
-    const avg = (total / subjects.length).toFixed(1);
-    document.getElementById('avgScore').textContent = avg;
+    
+    // Create legend
+    const legendContainer = document.getElementById('subjectLegend');
+    legendContainer.innerHTML = '';
+    
+    subjects.forEach(subject => {
+        const item = document.createElement('div');
+        item.className = 'legend-item';
+        item.innerHTML = `
+            <div class="legend-color" style="background-color: ${subject.color}"></div>
+            <span class="legend-text">${subject.name}</span>
+        `;
+        legendContainer.appendChild(item);
+    });
 }
 
 // Update Key Metrics
@@ -286,8 +302,7 @@ function updateMetrics(data) {
     
     document.getElementById('attendanceReliability').textContent = `${metrics.attendanceRate}%`;
     document.getElementById('attendanceBar').style.width = `${metrics.attendanceRate}%`;
-    const legendContainer = document.getElementById('legend');
-
+    
     // Animate bars
     setTimeout(() => {
         const bars = document.querySelectorAll('.metric-bar');
@@ -326,7 +341,7 @@ if (logoutLink) {
     logoutLink.addEventListener('click', (e) => {
         e.preventDefault();
         if (confirm('Are you sure you want to logout?')) {
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         }
     });
 }
